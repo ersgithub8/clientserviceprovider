@@ -32,5 +32,5 @@ public class Constant {
     //chat
     public static final String Base_url_chatlist=Base_url+"?get_chat=true&client_id=";
     public static final String Base_url_chatimage="http://marketist.eparking.website/uploads/chats";
-
+    public static final String Base_url_get_conversation=Base_url+"?get_conversation=true";
 }

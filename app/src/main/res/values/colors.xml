@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <!-- #29166f    -->
-<!--    #1496EE-->
-    <color name="colorPrimary">#fff6f1</color>
+<!--    #1496EE-->#fea984
+<!--    <color name="colorPrimary">#fff6f1</color>-->
+    <color name="colorPrimary">#fea984</color>
+
     <color name="colorPrimaryDark">#fea984</color>
     <color name="colorAccent">#1496EE</color>
     <color name="pink">#ffc0cb</color>
@@ -10,6 +12,7 @@
     <color name="pricecolor">#feb1b8</color>
     <color name="Red">#FC0530</color>
     <color name="white">#ffffff</color>
+    <color name="chatback">#fea984</color>
     <color name="grey_800">#424242</color>
 
 </resources>

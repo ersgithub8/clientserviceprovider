@@ -8,6 +8,8 @@ import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.BoringLayout;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -37,7 +39,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class Chat_Activity extends AppCompatActivity {
     RecyclerView chat;
     SharedPreferences sharedPreferences;
-
+    TextView back;
     private Chat_Adapter chat_adapter;
     private List<Chat_model> chat_models = new ArrayList<>();
 
@@ -50,6 +52,14 @@ public class Chat_Activity extends AppCompatActivity {
     chat.setLayoutManager(new LinearLayoutManager(Chat_Activity.this));
     sharedPreferences=getSharedPreferences("MyPrefsFile",MODE_PRIVATE);
     id=sharedPreferences.getString("id",null);
+    back=findViewById(R.id.backch);
+
+    back.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            onBackPressed();
+        }
+    });
 getData();
     }
 

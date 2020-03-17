@@ -60,6 +60,8 @@ public class Chat_Adapter extends RecyclerView.Adapter<Chat_Adapter.ChatViewhold
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context.getApplicationContext(), MessageActivity.class);
+                intent.putExtra("name",cmodel.getName());
+                intent.putExtra("image",Constant.Base_url_provider_image + cmodel.getImagelocation());
                 intent.putExtra("pid",cmodel.getProvider_id());
                 context.startActivity(intent);
             }
