@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Login">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/login_background"
+        />
+
+    <TextView
+        android:id="@+id/reserved"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/icon"
+        />
+
+    <EditText
+        android:inputType="textEmailAddress"
+        android:drawableLeft="@drawable/email"
+        android:fontFamily="@font/gotham"
+        android:hint="Email"
+        android:id="@+id/name"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reserved"
+        android:layout_marginTop="60dp"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:background="@drawable/edit_border"
+        android:drawablePadding="10dp"
+        />
+
+    <EditText
+        android:drawableLeft="@drawable/lock"
+        android:fontFamily="@font/gotham"
+        android:hint="Password"
+        android:id="@+id/pass"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:background="@drawable/edit_border"
+        android:drawablePadding="10dp"
+        android:inputType="textPassword"
+        />
+
+    <com.skydoves.elasticviews.ElasticButton
+        app:button_duration="250"
+        app:button_scale="0.87"
+        android:textStyle="bold"
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/pass"
+        android:background="@color/colorPrimary"
+        android:text="Login"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:fontFamily="@font/gotham"
+        />
+
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login"
+        android:text="Register"
+        android:textColor="#000000"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/forget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login"
+        android:text="Forget Password?"
+        android:textColor="#000000"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        />
+
+
+</RelativeLayout>

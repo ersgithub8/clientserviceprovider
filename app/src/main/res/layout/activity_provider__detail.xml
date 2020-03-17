@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.bus_reservation.Activity.Provider_Detail">
+
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/layout1"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/back"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back"
+            />
+        <TextView
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Provider  Detail"
+            android:textColor="#000000"
+            />
+
+    </LinearLayout>
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/provider_img"
+        android:layout_below="@+id/layout1"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/provider_img"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:id="@+id/tagline"
+            android:text="this is tagline"
+            android:textSize="20sp"
+            android:textColor="#000000" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/price"
+            android:text="$79"
+            android:textSize="23sp"
+            android:textColor="@color/pricecolor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:fontFamily="@font/gotham"
+            android:text="      (13 Reviews)"
+            android:textColor="#000000"/>
+    </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="horizontal">
+            
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_favorite_black_24dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/favorite"
+
+                />
+
+            <com.skydoves.elasticviews.ElasticButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.6"
+                android:text="Chat"
+                android:textColor="#000000"
+                android:textSize="21sp"
+                android:layout_margin="10dp"
+                android:id="@+id/chat"
+                android:background="@color/pink"/>
+
+            
+            
+            
+            
+        </LinearLayout>
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="Name"
+        android:textSize="30sp"
+        android:fontFamily="@font/gotham"
+        android:layout_margin="10dp"
+        android:id="@+id/name"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Details:"
+        android:textColor="#000000"
+        android:fontFamily="@font/gotham"
+        android:layout_margin="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gender_layout"
+        android:weightSum="2"
+        android:orientation="horizontal">
+        <TextView
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="wrap_content"
+             android:textSize="15sp"
+             android:text="Gender:"
+             android:textColor="#000000"
+             android:fontFamily="@font/gotham"
+             android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/Gender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/gotham"
+            android:textColor="#000000"
+            android:textSize="13sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:id="@+id/age_layout"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Age:"
+            android:textColor="#000000"
+            android:fontFamily="@font/gotham"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="13sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/gotham"
+            android:id="@+id/Age"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:id="@+id/height_layout"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Height:"
+            android:textColor="#000000"
+            android:fontFamily="@font/gotham"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="13sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/gotham"
+            android:id="@+id/height"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:id="@+id/haircolor_layout"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Hair Color:"
+            android:textColor="#000000"
+            android:fontFamily="@font/gotham"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="13sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/gotham"
+            android:id="@+id/haircolor"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:id="@+id/ethincity_layout"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Ethincity:"
+            android:textColor="#000000"
+            android:fontFamily="@font/gotham"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="13sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/gotham"
+            android:id="@+id/ethincity"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:id="@+id/services_layout"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:text="Services:"
+            android:textColor="#000000"
+            android:fontFamily="@font/gotham"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/gotham"
+            android:id="@+id/Services"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="#000000"
+        android:text="  Public Gallery"
+        android:id="@+id/tv_pbgallery"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        android:background="@color/colorPrimary"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/gotham"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/publicgallery"
+        android:layout_marginBottom="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="#000000"
+            android:background="@color/colorPrimary"
+            android:gravity="center_vertical"
+            android:text="  Private Gallery"
+            android:id="@+id/tv_prgallery"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/gotham"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/privategallery"
+            android:layout_marginBottom="50dp"/>
+
+
+
+
+    </LinearLayout>
+    </ScrollView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/pink"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:text="Request for booking"
+        android:textColor="#000000"
+        android:id="@+id/request_booking"
+        android:textSize="17sp" />
+
+</RelativeLayout>

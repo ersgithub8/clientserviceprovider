@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="25dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp"
+    >
+
+    <LinearLayout
+        android:background="@drawable/book_border"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Booking Date  :"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/booking_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="trip rout"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/booking_date"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Booking ID  :"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/booking_id"
+            android:layout_below="@id/booking_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="trip rout"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:textColor="#000000"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/booking_id"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Route Name  :"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/route_name"
+            android:layout_below="@id/booking_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="trip rout"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/route_name"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Price  :"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/price"
+            android:layout_below="@id/route_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="trip rout"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/price"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Total Seat  :"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/totalseat"
+            android:layout_below="@id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="trip rout"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/totalseat"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Seat Number  :"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/seat_number"
+            android:layout_below="@id/totalseat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="trip rout"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/seat_number"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Status  :"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/status_id"
+            android:layout_below="@id/seat_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="trip rout"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:textColor="#000000"
+            />
+
+        <com.skydoves.elasticviews.ElasticButton
+            app:button_duration="250"
+            app:button_scale="0.87"
+            android:id="@+id/refund"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/status_id"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_border"
+            android:text="Refund"
+            android:fontFamily="@font/gotham"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            />
+    </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

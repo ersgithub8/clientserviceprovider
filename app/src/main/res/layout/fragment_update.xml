@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Register"
+    android:orientation="vertical"
+    >
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <EditText
+                android:inputType="text"
+                android:drawableLeft="@drawable/person"
+                android:fontFamily="@font/gotham"
+                android:hint=" Name"
+                android:id="@+id/first"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/reserved"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:background="@drawable/edit_border"
+                android:drawablePadding="10dp"
+                />
+            <EditText
+                android:inputType="textEmailAddress"
+                android:drawableLeft="@drawable/person"
+                android:fontFamily="@font/gotham"
+                android:hint="User Name"
+                android:id="@+id/last"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/reserved"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:background="@drawable/edit_border"
+                android:drawablePadding="10dp"
+                />
+            <EditText
+                android:drawableLeft="@drawable/phone"
+                android:fontFamily="@font/gotham"
+                android:hint="Phone"
+                android:id="@+id/phone"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/password"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:background="@drawable/edit_border"
+                android:drawablePadding="10dp"
+                android:inputType="phone"
+                />
+            <EditText
+                android:drawableLeft="@drawable/dob"
+                android:fontFamily="@font/gotham"
+                android:hint="Date of birth"
+                android:id="@+id/dob"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/phone"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:background="@drawable/edit_border"
+                android:drawablePadding="10dp"
+
+                />
+            <EditText
+                android:drawableLeft="@drawable/lock"
+                android:fontFamily="@font/gotham"
+                android:hint="Pin Code"
+                android:id="@+id/pincode"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dob"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:background="@drawable/edit_border"
+                android:drawablePadding="10dp"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/gotham"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/gender_radio"
+                >
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/gotham"
+                    android:id="@+id/male"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:layout_marginLeft="40dp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/gotham"
+                    android:id="@+id/Female"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Others"
+                    android:layout_marginLeft="40dp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/gotham"
+                    android:id="@+id/others"/>
+
+            </RadioGroup>
+            <com.skydoves.elasticviews.ElasticButton
+                app:button_duration="250"
+                app:button_scale="0.87"
+                android:textStyle="bold"
+                android:id="@+id/update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_below="@id/pass"
+                android:background="@color/colorPrimary"
+                android:text="Update"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:fontFamily="@font/gotham"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/successful_register"
+                android:visibility="gone"
+
+                android:background="@color/colorPrimary">
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+
+                    android:text="Verification Email has been sent to You !! Please verify accont before login "
+                    android:textColor="@color/colorPrimaryDark" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

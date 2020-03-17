@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+    <group android:checkableBehavior="single"
+        android:enabled="true"
+        android:visible="true">
+        <item android:id="@+id/nav_dash"
+            android:title="Dashboard"
+            android:icon="@drawable/home"
+
+            />
+
+        <item android:id="@+id/nav_profile"
+              android:icon="@drawable/person"
+              android:title="Edit Profile"
+            />
+
+
+        <item android:id="@+id/Wishlist"
+            android:icon="@drawable/favourite"
+            android:title="Wishlist"
+            />
+        <item android:id="@+id/Chat"
+            android:icon="@drawable/address"
+            android:title="Chat"
+            />
+        <item android:id="@+id/nav_memberships"
+            android:icon="@drawable/membership_icon"
+            android:title="MemberShips"
+            />
+        <item android:id="@+id/UpdatePassword"
+            android:icon="@drawable/address"
+            android:title="Update Password"
+            />
+
+    </group>
+
+    <item android:title="Others"
+        >
+        <menu>
+            <item android:id="@+id/nav_share"
+                android:icon="@drawable/share"
+                android:title="Share it" />
+
+            <item android:id="@+id/nav_logout"
+            android:icon="@drawable/power"
+                android:visible="false"
+            android:title="Logout" />
+
+        </menu>
+    </item>
+
+</menu>

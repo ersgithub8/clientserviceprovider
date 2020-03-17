@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff"
+    tools:context=".Dashboard">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp" >
+
+    <LinearLayout
+
+        android:id="@+id/tempo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:orientation="vertical"
+    >
+        <com.daimajia.slider.library.SliderLayout
+            android:id="@+id/slider"
+            android:layout_alignParentTop="true"
+            android:layout_width="wrap_content"
+
+            android:layout_height="280dp"
+            android:gravity="start"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:background="@color/colorPrimary"
+            >
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:text="Top Categroies"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/gotham"
+            />
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:text="View All"
+                android:background="@color/colorPrimaryDark"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/gotham"
+                android:layout_alignParentRight="true"
+                android:textColor="#000000"
+                android:id="@+id/view_All"/>
+
+
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_categories"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+
+            android:layout_margin="10dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:background="@color/colorPrimary"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:text="Top Providers"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/gotham"
+                />
+
+
+
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_providers"
+            android:layout_width="match_parent"
+            android:layout_height="251dp"
+
+            android:layout_margin="10dp" />
+
+    </LinearLayout>
+
+    </ScrollView>
+</FrameLayout>

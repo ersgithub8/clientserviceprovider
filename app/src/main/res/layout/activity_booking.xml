@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    tools:context="com.example.bus_reservation.Activity.Booking_Activity">
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/layout1"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/back"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back"
+            />
+        <TextView
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Booking"
+            android:textColor="#000000"
+            />
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/request_time"
+        android:layout_below="@+id/layout1"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout2"
+
+        android:orientation="horizontal">
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:id="@+id/provider_img"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Name"
+            android:textSize="27sp"
+            android:textColor="#000000"
+
+            android:fontFamily="@font/gotham"
+            android:layout_margin="3dp"
+            android:id="@+id/provider_name"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="this is tagline"
+            android:id="@+id/tagline"
+            android:layout_marginLeft="10dp"
+            android:textSize="17sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/distancelayout"
+                android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance in miles:"
+                android:textSize="13sp"
+                android:layout_margin="8dp"
+                android:textColor="#000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hello"
+                    android:layout_margin="8dp"
+                    android:id="@+id/distance"
+                    android:padding="5dp"
+                    android:textColor="#000000"
+                    android:background="@drawable/edit_border"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout3"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="  Service:"
+            android:textColor="#000000"
+            android:background="@color/pink"
+            android:textSize="19sp"
+            android:gravity="center_vertical"/>
+        <Spinner
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/select_service"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+
+            android:id="@+id/radio_call">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Incall"
+                android:layout_margin="10dp"
+                android:id="@+id/incall"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Outcall"
+                android:layout_margin="10dp"
+                android:id="@+id/outcall"/>
+
+
+
+        </RadioGroup>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hourly Price:"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:textSize="17sp"
+                android:background="@drawable/edit_border"
+                android:padding="8dp"
+                android:gravity="center"
+                android:id="@+id/hourly_price"
+                android:textColor="#000000"
+                android:layout_margin="10dp"/>
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            >
+
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/date"
+                android:hint="Date"
+
+                android:editable="false" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            >
+
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/time"
+                android:hint="Select start time"
+
+                android:editable="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hours:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:id="@+id/minus"
+                app:srcCompat="@drawable/minus"
+                android:layout_marginLeft="30dp"
+
+
+                />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:background="@drawable/edit_border"
+                android:padding="5dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/hours"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:id="@+id/plus"
+                app:srcCompat="@drawable/plus"
+
+                android:layout_marginLeft="10dp"
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:id="@+id/layout_total"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Total Price:"
+                android:textColor="#000000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:text="111"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/edit_border"
+                android:padding="7dp"
+                android:textColor="#000000"
+                android:id="@+id/total_price"
+                />
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+
+
+
+    <com.skydoves.elasticviews.ElasticButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:textColor="#000000"
+        android:text="Request My Time"
+        android:id="@+id/request_time"
+        android:background="@color/pink"
+        />
+
+
+
+
+</RelativeLayout>

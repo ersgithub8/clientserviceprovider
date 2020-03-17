@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.bus_reservation">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <dist:module dist:instant="true" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/security_config"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup,android:icon">
+        <activity android:name=".Activity.MessageActivity"></activity>
+        <activity android:name=".Activity.Chat_Activity" />
+        <activity android:name=".Activity.Checkout_Activity" />
+        <activity android:name=".Activity.Booking_Activity" />
+        <activity android:name=".Activity.Update_password" />
+        <activity android:name=".Activity.All_categories" />
+        <activity android:name=".Activity.Provider_Detail" />
+        <activity android:name=".Activity.Provider_Activity" />
+        <activity android:name=".Activity.SkipActivity" />
+        <activity android:name=".Activity.Show_image" />
+        <activity android:name=".Activity.Forget" />
+        <activity android:name=".Activity.Payumoney" />
+        <activity android:name=".Activity.price_detail" />
+        <activity android:name=".Activity.Pick_Drop" />
+        <activity android:name=".Activity.Menu" />
+        <activity android:name=".Activity.Forget_Password" />
+        <activity android:name=".Activity.Register" />
+        <activity android:name=".Activity.Login" />
+        <activity android:name=".Activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+    </application>
+
+</manifest>
