@@ -52,6 +52,8 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/gotham"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
                 android:text="  Billing Details:"
                 android:textColor="#000000"
                 android:textSize="20sp" />
@@ -62,6 +64,8 @@
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/gotham"
                 android:text="  Name:"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
@@ -80,6 +84,8 @@
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/gotham"
                 android:text="  Email:"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
@@ -98,6 +104,8 @@
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/gotham"
                 android:text="  Phone:"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
@@ -123,6 +131,8 @@
 
             </com.google.android.material.textfield.TextInputLayout>
             <TextView
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
@@ -162,6 +172,8 @@
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/gotham"
                 android:text="  Screening Link:"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
@@ -210,6 +222,12 @@
                 android:layout_margin="5dp"
                 android:background="#E3E0E0"
                 android:text="Browse:" />
+            <ImageView
+                android:id="@+id/pimg"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                />
 
 
         </LinearLayout>

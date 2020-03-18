@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.example.bus_reservation.Constant;
 import com.example.bus_reservation.R;
 import com.example.bus_reservation.volley.CustomRequest;
@@ -53,12 +55,13 @@ public class Checkout_Activity extends AppCompatActivity {
     ElasticButton checkout,browse;
     Bitmap bitmap;
     String Email;
+    ImageView pimg;
     String First;
     String phone;
     String freelancid;
     Uri uri;
 
-
+    int a=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,13 +77,14 @@ public class Checkout_Activity extends AppCompatActivity {
         freelancer_id=findViewById(R.id.client_id);
         email=findViewById(R.id.client_email);
         phone1=findViewById(R.id.client_phone);
+        pimg=findViewById(R.id.pimg);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-
+        pimg.setVisibility(View.GONE);
         SharedPreferences editors = getSharedPreferences(MY_PREFS_NAME,MODE_PRIVATE);
        Email = editors.getString("email","Null");
        First = editors.getString("firstname","Null");
@@ -113,13 +117,32 @@ public class Checkout_Activity extends AppCompatActivity {
                 startActivityForResult(pickImage, 0);
             }
         });
+        pimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent pickImage = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(pickImage, 0);
+            }
+        });
 
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                uploadbitmap(bitmap,Service_id,Call_type,hourly_price,Date,time,total_hour,total_price,provider_id,First,Email,phone,locationtype,address,special_request_text,link1_text,link2_text,freelancid);
-
+                if(!addres.getText().toString().isEmpty()
+                &&!specialrequest.getText().toString().isEmpty()
+                && !link1.getText().toString().isEmpty()
+                &&!link2.getText().toString().isEmpty()
+                ) {
+                    if(a!=0){
+                        uploadbitmap(bitmap, Service_id, Call_type, hourly_price, Date, time, total_hour, total_price, provider_id, First, Email, phone, locationtype, address, special_request_text, link1_text, link2_text, freelancid);
+                    }
+                    else {
+                        makeText(Checkout_Activity.this, "Select Image first", LENGTH_SHORT).show();
+                    }
+                    }else {
+                    makeText(Checkout_Activity.this, "All fields must be filled.", LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -138,8 +161,13 @@ public class Checkout_Activity extends AppCompatActivity {
             try {
                 Bitmap bit = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 bitmap = bit;
+                a=1;
                 //uploadbitmap(bitmap,"12");
+                browse.setVisibility(View.GONE);
+                pimg.setVisibility(View.VISIBLE);
+//                Glide.with(Checkout_Activity.this).load(bitmap).into(pimg);
 
+                pimg.setImageBitmap(bitmap);
             } catch (IOException e) {
                 Toast.makeText(this,"Error Loading Image", LENGTH_SHORT).show();
             }
@@ -150,6 +178,11 @@ public class Checkout_Activity extends AppCompatActivity {
                               final String freelancer_id, final String client_name, final String client_email, final String client_phone,
                               final String location_type, final String client_address, final String special_request,
                               final String screening_link1, final String screening_link2, final String client_id) {
+        final android.app.AlertDialog loading = new ProgressDialog(Checkout_Activity.this);
+        loading.setMessage("Checking...");
+        loading.setCancelable(false);
+        loading.show();
+
 
         VolleyMultipartRequest jsonRequest = new VolleyMultipartRequest(Request.Method.POST, Constant.Base_url, new Response.Listener<NetworkResponse>() {
             @Override
@@ -162,6 +195,7 @@ public class Checkout_Activity extends AppCompatActivity {
                     makeText(Checkout_Activity.this, status+"", LENGTH_SHORT).show();
                     String msg = obj.getString("data");
                     if (status) {
+                        loading.dismiss();
                         Toast.makeText(Checkout_Activity.this,msg, Toast.LENGTH_SHORT).show();
                         Intent i=new Intent(Checkout_Activity.this,Payumoney.class);
                         i.putExtra("paymenttype","booking");
