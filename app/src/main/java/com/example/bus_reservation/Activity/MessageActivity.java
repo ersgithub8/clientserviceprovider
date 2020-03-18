@@ -224,7 +224,7 @@ public class MessageActivity extends AppCompatActivity {
                     }
                     else {
                         loading.dismiss();
-                        makeText(MessageActivity.this,"No Data Found", LENGTH_SHORT).show();
+//                        makeText(MessageActivity.this,"No Data Found", LENGTH_SHORT).show();
                     }
                 }
                 catch (Exception e){

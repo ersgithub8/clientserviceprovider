@@ -22,6 +22,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.bus_reservation.Adapter.Gallery_adapter;
+import com.example.bus_reservation.Adapter.Message_Adapter;
 import com.example.bus_reservation.Adapter.Provider_adapter;
 import com.example.bus_reservation.Constant;
 import com.example.bus_reservation.Model.Dasboard_provider_model;
@@ -30,6 +31,7 @@ import com.example.bus_reservation.R;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.reflect.TypeToken;
+import com.skydoves.elasticviews.ElasticButton;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -50,7 +52,8 @@ public class Provider_Detail extends AppCompatActivity {
     private Gallery_adapter gallery_adapter;
     private List<Gallery_model> gallery_models = new ArrayList<>();
     RecyclerView rv_public_gallery,rv_private_gallery;
-
+    String image1;
+    ElasticButton chat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +69,7 @@ public class Provider_Detail extends AppCompatActivity {
         });
         name=findViewById(R.id.name);
         providerimage=findViewById(R.id.provider_img);
-
+        chat=findViewById(R.id.chat);
         age=findViewById(R.id.Age);
         tagline=findViewById(R.id.tagline);
         continue_request=findViewById(R.id.request_booking);
@@ -98,6 +101,18 @@ public class Provider_Detail extends AppCompatActivity {
         rv_private_gallery.setNestedScrollingEnabled(true);
 
         getProvider(provider_id);
+
+
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Provider_Detail.this, MessageActivity.class);
+                i.putExtra("pid", provider_id);
+                i.putExtra("name",name.getText().toString());
+                i.putExtra("image",image1);
+                startActivity(i);
+            }
+        });
 
         continue_request.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,6 +182,7 @@ public class Provider_Detail extends AppCompatActivity {
                                 tagline.setText(object.getString("tagline"));
                             }
                             String image=Constant.Base_url_provider_image+object.getString("image");
+                            image1=image;
                             Glide.with(Provider_Detail.this).load(image).into(providerimage);
 
                             //public gallery
