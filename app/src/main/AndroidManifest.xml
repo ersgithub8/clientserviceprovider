@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup,android:icon">
-        <activity android:name=".Activity.MessageActivity"></activity>
+        <activity android:name=".Activity.PaymentMethod_Activity"></activity>
+        <activity android:name=".Activity.MessageActivity" />
         <activity android:name=".Activity.Chat_Activity" />
         <activity android:name=".Activity.Checkout_Activity" />
         <activity android:name=".Activity.Booking_Activity" />

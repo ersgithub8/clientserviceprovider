@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.bus_reservation.Activity.PaymentMethod_Activity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp"
+    android:layout_centerInParent="true"
+    android:orientation="vertical">
+
+    <com.skydoves.elasticviews.ElasticButton
+        android:layout_width="match_parent"
+        android:id="@+id/paypalpm"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="PayPal"
+        android:elevation="3dp"
+        app:button_duration="300"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:textSize="20dp"/>
+
+
+    <com.skydoves.elasticviews.ElasticButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="3dp"
+        android:background="@color/colorPrimary"
+        android:text="Stripe"
+        android:id="@+id/stripepm"
+        app:button_duration="300"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:textSize="20dp"/>
+
+</LinearLayout>
+</RelativeLayout>
