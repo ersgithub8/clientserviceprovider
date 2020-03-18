@@ -159,6 +159,7 @@ public class Checkout_Activity extends AppCompatActivity {
                     JSONObject obj = new JSONObject(new String(response.data));
 
                     status = obj.getBoolean("response");
+                    makeText(Checkout_Activity.this, status+"", LENGTH_SHORT).show();
                     String msg = obj.getString("data");
                     if (status) {
                         Toast.makeText(Checkout_Activity.this,msg, Toast.LENGTH_SHORT).show();

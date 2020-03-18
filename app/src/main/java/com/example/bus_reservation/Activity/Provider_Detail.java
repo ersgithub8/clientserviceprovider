@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -28,17 +30,21 @@ import com.example.bus_reservation.Constant;
 import com.example.bus_reservation.Model.Dasboard_provider_model;
 import com.example.bus_reservation.Model.Gallery_model;
 import com.example.bus_reservation.R;
+import com.example.bus_reservation.volley.CustomRequest;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.reflect.TypeToken;
 import com.skydoves.elasticviews.ElasticButton;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.LENGTH_SHORT;
@@ -46,7 +52,8 @@ import static android.widget.Toast.makeText;
 
 public class Provider_Detail extends AppCompatActivity {
     TextView back,name,gender,age,height,haircolor,ethincity,services,tvpbgallery,tvprgallery,continue_request,tagline;
-    ImageView providerimage;
+    ImageView providerimage,fav;
+    int j=0;
     LinearLayout genderlayout,agelayout,heightlayout,haicolorlayout,ethincitylayout,serviceslayout;
     //provider detail adapter model
     private Gallery_adapter gallery_adapter;
@@ -54,12 +61,16 @@ public class Provider_Detail extends AppCompatActivity {
     RecyclerView rv_public_gallery,rv_private_gallery;
     String image1;
     ElasticButton chat;
+    String provider_id;
+    SharedPreferences sharedPreferences;
+    ArrayList<String> list=new ArrayList<String>();
+    String client_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_provider__detail);
 
-        final String provider_id=getIntent().getStringExtra("Provider_id");
+         provider_id=getIntent().getStringExtra("Provider_id");
         back=findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +82,7 @@ public class Provider_Detail extends AppCompatActivity {
         providerimage=findViewById(R.id.provider_img);
         chat=findViewById(R.id.chat);
         age=findViewById(R.id.Age);
+        fav=findViewById(R.id.favorite);
         tagline=findViewById(R.id.tagline);
         continue_request=findViewById(R.id.request_booking);
         height=findViewById(R.id.height);
@@ -89,7 +101,8 @@ public class Provider_Detail extends AppCompatActivity {
         tvpbgallery=findViewById(R.id.tv_pbgallery);
         tvprgallery=findViewById(R.id.tv_prgallery);
 //        makeText(this, provider_id, LENGTH_SHORT).show();
-
+        sharedPreferences=getSharedPreferences("MyPrefsFile",MODE_PRIVATE);
+        client_id=sharedPreferences.getString("id",null);
         GridLayoutManager gridLayoutManager1 = new GridLayoutManager(this, 3);
         rv_public_gallery.setLayoutManager(gridLayoutManager1);
         rv_public_gallery.setItemAnimator(new DefaultItemAnimator());
@@ -101,7 +114,7 @@ public class Provider_Detail extends AppCompatActivity {
         rv_private_gallery.setNestedScrollingEnabled(true);
 
         getProvider(provider_id);
-
+        getWstatus(client_id);
 
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +127,19 @@ public class Provider_Detail extends AppCompatActivity {
             }
         });
 
+
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(j==1){
+                    removewl(client_id,provider_id);
+                }else{
+                    addwl(client_id,provider_id);
+                }
+            }
+
+
+        });
         continue_request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,6 +150,8 @@ public class Provider_Detail extends AppCompatActivity {
         });
 
     }
+
+
     private void getProvider(String Prov_id) {
 
         JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, Constant.Base_url_Provider_Detail+Prov_id+"&get_single_provider=true" ,new Response.Listener<JSONObject>() {
@@ -256,4 +284,226 @@ public class Provider_Detail extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(jsonRequest);
     }
+
+
+
+
+    private void getWstatus(String Prov_id) {
+        final android.app.AlertDialog loading = new ProgressDialog(Provider_Detail.this);
+        loading.setMessage("Loading...");
+        loading.setCancelable(false);
+        loading.show();
+        JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, Constant.Base_url_Provider_Detail1+Prov_id ,new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Boolean status = null;
+
+                try {
+
+                    status=response.getBoolean("wishlist_response");
+                    if(status){
+                        loading.cancel();
+                        JSONArray jsonArray = response.getJSONArray("wishlist");
+//                        Toast.makeText(Provider_Detail.this, response.getString("data"), LENGTH_SHORT).show();
+                        for (int i=0;i<jsonArray.length();i++){
+                            JSONObject object= jsonArray.getJSONObject(i);
+
+
+
+//                            list.add(object.getString("provider_id"));
+
+                            if(object.getString("provider_id").equals(provider_id)){
+                                fav.setImageResource(R.drawable.fav);
+                                j=1;
+                            }else {
+                                j=0;
+                                fav.setImageResource(R.drawable.ic_favorite_black_24dp);
+                            }
+
+
+                        }
+
+
+
+                    }else {
+                        loading.cancel();
+                        makeText(Provider_Detail.this, "Something went wrong.", LENGTH_SHORT).show();
+                    }
+
+                }
+                catch (Exception e){
+
+                    makeText(Provider_Detail.this,"No Data Found", LENGTH_SHORT).show();
+                }
+
+            }
+        }
+                , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                makeText(Provider_Detail.this, "Connection Error", LENGTH_LONG).show();
+            }
+        });
+
+        jsonRequest.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(jsonRequest);
+    }
+
+
+
+    public void addwl(String c_id,String p_id){
+
+        final android.app.AlertDialog loading = new ProgressDialog(Provider_Detail.this);
+        loading.setMessage("Checking...");
+        loading.show();
+
+        Map<String, String> params = new Hashtable<String, String>();
+        params.put("add_wishlist", "true");
+        params.put("client_id", c_id);
+        params.put("provider_id", p_id);
+
+        CustomRequest jsonRequest = new CustomRequest(Request.Method.POST, Constant.addwl,params, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+
+                    Boolean status = response.getBoolean("response");
+
+                    String data=response.getString("data");
+                    if (status){
+                        loading.dismiss();
+                        j=1;
+                        fav.setImageResource(R.drawable.fav);
+                    }
+                    else {
+                        loading.dismiss();
+                        String error = response.getString("data");
+                        j=0;
+                        fav.setImageResource(R.drawable.ic_favorite_black_24dp);
+                        Toast.makeText(Provider_Detail.this,error, LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException error) {
+                    loading.dismiss();
+                    Toast.makeText(Provider_Detail.this,"Something Went Wrong", LENGTH_SHORT).show();
+                }
+
+            }
+        }
+                , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                loading.dismiss();
+                makeText(getApplicationContext(), "Something went wrong" + error, LENGTH_LONG).show();
+            }
+        });
+
+        jsonRequest.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+
+            }
+        });
+
+//        MySingleton.getInstance(this).addToRequestQueue(jsonRequest);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(jsonRequest);
+
+    }
+
+
+    private void removewl(String client_id, String Prov_id) {
+
+
+        final android.app.AlertDialog loading = new ProgressDialog(Provider_Detail.this);
+        loading.setMessage("Loading...");
+        loading.setCancelable(false);
+        loading.show();
+        JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, Constant.removewl
+                +client_id+"&provider_id="+Prov_id ,new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Boolean status = null;
+
+                try {
+
+                    status=response.getBoolean("response");
+                    if(status){
+                        loading.cancel();
+
+                        fav.setImageResource(R.drawable.ic_favorite_black_24dp);
+                        j=0;
+                    }else {
+                        loading.cancel();
+                        fav.setImageResource(R.drawable.fav);
+                        j=1;
+                        makeText(Provider_Detail.this, "Something went wrong.", LENGTH_SHORT).show();
+                    }
+
+                }
+                catch (Exception e){
+
+                    makeText(Provider_Detail.this,"No Data Found", LENGTH_SHORT).show();
+                }
+
+            }
+        }
+                , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                makeText(Provider_Detail.this, "Connection Error", LENGTH_LONG).show();
+            }
+        });
+
+        jsonRequest.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(jsonRequest);
+    }
+
 }

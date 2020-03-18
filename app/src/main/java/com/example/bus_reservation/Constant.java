@@ -17,6 +17,8 @@ public class Constant {
     public static final String Base_url_ProviderBy_category = Base_url+"?catid=";
     public static final String Base_url_Wihslist = Base_url+"?wishlist=true&client_id=";
     public static final String Base_url_Provider_Detail = Base_url+"?provider_id=";
+
+    public static final String Base_url_Provider_Detail1 = Base_url+"?providers=true&client_id=";
     public static final String Base_url_Update = Base_url+"/update_passenger";
     public static final String Base_url_Index = Base_url+"/index";
     public static final String Base_url_Search = Base_url+"/search?";
@@ -33,4 +35,7 @@ public class Constant {
     public static final String Base_url_chatlist=Base_url+"?get_chat=true&client_id=";
     public static final String Base_url_chatimage="http://marketist.eparking.website/uploads/chats";
     public static final String Base_url_get_conversation=Base_url+"?get_conversation=true";
+
+    public static final String addwl="http://marketist.eparking.website/Client/Api.php";
+    public static final String removewl="http://marketist.eparking.website/Client/Api.php?remove_wishlist=true&client_id=";
 }
