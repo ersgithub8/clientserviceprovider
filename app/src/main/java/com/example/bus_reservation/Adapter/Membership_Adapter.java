@@ -89,7 +89,7 @@ public class Membership_Adapter  extends RecyclerView.Adapter<Membership_Adapter
                 holder.btnselect.setVisibility(View.VISIBLE);
             }
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
+            holder.btnselect.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent=new Intent(context, PaymentMethod_Activity.class);
