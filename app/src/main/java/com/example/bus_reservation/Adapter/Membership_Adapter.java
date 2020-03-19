@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.bus_reservation.Activity.PaymentMethod_Activity;
 import com.example.bus_reservation.Model.Membership_model;
 import com.example.bus_reservation.R;
 
@@ -88,7 +89,15 @@ public class Membership_Adapter  extends RecyclerView.Adapter<Membership_Adapter
                 holder.btnselect.setVisibility(View.VISIBLE);
             }
 
-
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(context, PaymentMethod_Activity.class);
+                    intent.putExtra("paymenttype","membership");
+                    intent.putExtra("price",mList.getPrice());
+                    context.startActivity(intent);
+                }
+            });
 
         }
 

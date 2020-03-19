@@ -197,7 +197,7 @@ public class Checkout_Activity extends AppCompatActivity {
                     if (status) {
                         loading.dismiss();
                         Toast.makeText(Checkout_Activity.this,msg, Toast.LENGTH_SHORT).show();
-                        Intent i=new Intent(Checkout_Activity.this,Payumoney.class);
+                        Intent i=new Intent(Checkout_Activity.this,PaymentMethod_Activity.class);
                         i.putExtra("paymenttype","booking");
                         i.putExtra("price",total_price);
                         startActivity(i);
