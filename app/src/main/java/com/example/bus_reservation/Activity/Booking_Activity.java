@@ -313,9 +313,6 @@ public class Booking_Activity extends AppCompatActivity implements Time_picker.T
                                 service.setAdapter(new ArrayAdapter<String>(Booking_Activity.this, android.R.layout.simple_spinner_dropdown_item, Select_service));
 //                                Drop.setAdapter(new ArrayAdapter<String>(Pick_Drop.this, android.R.layout.simple_spinner_dropdown_item, dropup));
 
-
-
-
                             }
 
                     }
