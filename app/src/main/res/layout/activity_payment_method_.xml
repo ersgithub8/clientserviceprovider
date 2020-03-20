@@ -33,89 +33,130 @@
             />
 
     </LinearLayout>
+
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingRight="20dp"
-        android:layout_marginTop="20dp"
-    android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/layout1"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Select a payment method:"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        />
-    <com.skydoves.elasticviews.ElasticButton
-        android:layout_width="match_parent"
-        android:id="@+id/paypalpm"
-        android:visibility="gone"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:text="PayPal"
-        android:elevation="3dp"
-        app:button_duration="300"
-        android:textStyle="bold"
-        android:textColor="#ffffff"
-        android:textSize="20dp"/>
+        android:layout_marginTop="22dp"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select a payment method:"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <com.skydoves.elasticviews.ElasticButton
+            android:id="@+id/paypalpm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:elevation="3dp"
+            android:text="PayPal"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:button_duration="300" />
 
 
-    <com.skydoves.elasticviews.ElasticButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="3dp"
-        android:background="@color/colorPrimary"
-        android:text="Stripe"
-        android:id="@+id/stripepm"
-        app:button_duration="300"
-        android:visibility="gone"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:textColor="#ffffff"
-        android:textSize="20dp"/>
+        <com.skydoves.elasticviews.ElasticButton
+            android:id="@+id/stripepm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimary"
+            android:elevation="3dp"
+            android:text="Stripe"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:button_duration="300" />
 
 
         <RadioGroup
+            android:id="@+id/radigp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/radigp"
             android:layout_marginTop="20dp">
 
-            <RadioButton
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Paypal"
-                android:id="@+id/paypalrb"
-                />
+                app:contentPadding="6dp"
+                android:layout_margin="10dp"
+                app:cardElevation="5dp">
 
-            <RadioButton
-                android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/paypalrb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/paypalogo"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Stripe"
-                android:layout_marginTop="20dp"
-                android:id="@+id/striperb"
-                />
+                app:contentPadding="6dp"
+                android:layout_margin="10dp"
+                app:cardElevation="5dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/striperb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/stripelogo"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
         </RadioGroup>
 
 
-
-</LinearLayout>
+    </LinearLayout>
 
     <com.skydoves.elasticviews.ElasticButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="3dp"
         android:background="@color/colorPrimary"
-        android:text="Confirm"
+        android:text="Pay Now"
         android:id="@+id/confirm"
         app:button_duration="300"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:layout_alignParentBottom="true"
         android:textColor="#ffffff"
-        android:clickable="false"
         android:textSize="20dp"/>
 </RelativeLayout>

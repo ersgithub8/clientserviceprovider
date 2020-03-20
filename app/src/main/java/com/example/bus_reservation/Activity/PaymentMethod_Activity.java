@@ -15,7 +15,7 @@ import com.example.bus_reservation.R;
 import com.skydoves.elasticviews.ElasticButton;
 
 public class PaymentMethod_Activity extends AppCompatActivity {
-    ElasticButton paypal,stripe,confirm;
+    ElasticButton confirm;
     String Paymenttype,Totalprice;
     TextView back;
     RadioButton paypalr,striper;
@@ -24,8 +24,6 @@ public class PaymentMethod_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_method_);
-    paypal=findViewById(R.id.paypalpm);
-    stripe=findViewById(R.id.stripepm);
     confirm=findViewById(R.id.confirm);
     back=findViewById(R.id.backpm);
     radioGroup=findViewById(R.id.radigp);
@@ -46,12 +44,7 @@ public class PaymentMethod_Activity extends AppCompatActivity {
 
 
 
-    paypal.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
 
-        }
-    });
 
 
     confirm.setOnClickListener(new View.OnClickListener() {
@@ -71,29 +64,31 @@ public class PaymentMethod_Activity extends AppCompatActivity {
         }
     });
 
-    stripe.setOnClickListener(new View.OnClickListener() {
+
+        paypalr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                striper.setChecked(false);
+            }
+        });
+    striper.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent=new Intent(PaymentMethod_Activity.this,Payumoney.class);
-            intent.putExtra("paymenttype",Paymenttype);
-            intent.putExtra("price",Totalprice);
-            startActivity(intent);
+            paypalr.setChecked(false);
         }
     });
-
 
     radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             switch(checkedId){
 
-
                 case R.id.paypalrb:
-                    confirm.setClickable(true);
+                    striper.setChecked(false);
                     break;
 
                 case R.id.striperb:
-                    confirm.setClickable(true);
+                    paypalr.setChecked(false);
                     break;
                 default:
                     break;
