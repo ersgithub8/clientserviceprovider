@@ -4,7 +4,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 
@@ -18,6 +20,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -62,6 +65,7 @@ public class Booking_Activity extends AppCompatActivity implements Time_picker.T
     Spinner service;
     Button btncheck;
     RadioGroup radioGroup;
+    RadioButton in,out;
     LinearLayout li;
     String calltype="null",date="null",Timeget="null";
     TextView hours,total_price;
@@ -80,7 +84,8 @@ public class Booking_Activity extends AppCompatActivity implements Time_picker.T
         minus=findViewById(R.id.minus);
         hours=findViewById(R.id.hours);
         time=findViewById(R.id.time);
-
+        in=findViewById(R.id.incall);
+        out=findViewById(R.id.outcall);
         dob=findViewById(R.id.date);
         btncheck=findViewById(R.id.request_time);
         li=findViewById(R.id.distancelayout);
@@ -107,6 +112,8 @@ public class Booking_Activity extends AppCompatActivity implements Time_picker.T
         final String provider_id=getIntent().getStringExtra("Provider_id");
         getProvider(provider_id);
 
+
+
         hourlyprice.setText(" ");
         radioGroup=(RadioGroup)findViewById(R.id.radio_call);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -116,7 +123,11 @@ public class Booking_Activity extends AppCompatActivity implements Time_picker.T
 
                     switch (i) {
                         case R.id.incall:
-                            if (String.valueOf(service.getSelectedItem()).equals("Select Service")){
+
+                            String spin;
+                            spin=String.valueOf(service.getSelectedItem());
+                            if (spin.equals("Select Service")){
+                                in.setChecked(false);
                                 makeText(Booking_Activity.this, "Select Service First", LENGTH_SHORT).show();
                             }else {
                                 calltype = "incall";
@@ -130,7 +141,11 @@ public class Booking_Activity extends AppCompatActivity implements Time_picker.T
 
                             break;
                         case R.id.outcall:
+
+                            String spin1;
+                            spin1=String.valueOf(service.getSelectedItem());
                             if (String.valueOf(service.getSelectedItem()).equals("Select Service")){
+                                out.setChecked(false);
                                 makeText(Booking_Activity.this, "Select Service First", LENGTH_SHORT).show();
                             }else {
                                 calltype = "outcall";
@@ -141,6 +156,9 @@ public class Booking_Activity extends AppCompatActivity implements Time_picker.T
                                 total_price.setText("$" + tw);
                             }
 
+                            break;
+
+                        default:
                             break;
 
                     }
@@ -240,7 +258,10 @@ public class Booking_Activity extends AppCompatActivity implements Time_picker.T
 
     }
     private void getProvider(String Prov_id) {
-
+        final AlertDialog loading=new ProgressDialog(Booking_Activity.this);
+        loading.setCancelable(false);
+        loading.setTitle("Loading...");
+        loading.show();
         JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, Constant.Base_url_Provider_Detail+Prov_id+"&get_single_provider=true" ,new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -250,6 +271,7 @@ public class Booking_Activity extends AppCompatActivity implements Time_picker.T
 
                     status=response.getBoolean("response");
                     if(status){
+                        loading.dismiss();
                         JSONArray jsonArray = response.getJSONArray("data");
 //                        Toast.makeText(Provider_Detail.this, response.getString("data"), LENGTH_SHORT).show();
                         for (int i=0;i<jsonArray.length();i++){
