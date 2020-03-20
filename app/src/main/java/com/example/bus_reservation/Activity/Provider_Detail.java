@@ -308,16 +308,10 @@ public class Provider_Detail extends AppCompatActivity {
                         for (int i=0;i<jsonArray.length();i++){
                             JSONObject object= jsonArray.getJSONObject(i);
 
-
-
 //                            list.add(object.getString("provider_id"));
-
                             if(object.getString("provider_id").equals(provider_id)){
                                 fav.setImageResource(R.drawable.fav);
                                 j=1;
-                            }else {
-                                j=0;
-                                fav.setImageResource(R.drawable.ic_favorite_black_24dp);
                             }
 
 
