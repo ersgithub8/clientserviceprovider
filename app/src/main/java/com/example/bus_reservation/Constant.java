@@ -2,13 +2,13 @@ package com.example.bus_reservation;
 
 public class Constant {
 
-    public static final String Base_url="http://marketist.eparking.website/Client/Api.php";
-    public static final String Base_url_image="http://marketist.eparking.website/Client/";
-    public static final String Base_url_provider_image="http://marketist.eparking.website/Freelancer/";
-    public static final String Base_url_Category_image="http://marketist.eparking.website/Admin/uploads/category/";
+    public static final String Base_url="https://providors.finalyearprojects.website/Client/Api.php";
+    public static final String Base_url_image="https://providors.finalyearprojects.website/Client/";
+    public static final String Base_url_provider_image="https://providors.finalyearprojects.website/Freelancer/";
+    public static final String Base_url_Category_image="https://providors.finalyearprojects.website/Admin/uploads/category/";
 
     public static final String Base_url_Slider = Base_url+"?slider=true";
-    public static final String Base_url_Stripe = "http://marketist.eparking.website/Client/client_stripe.php?";
+    public static final String Base_url_Stripe = "https://providors.finalyearprojects.website/Client/client_stripe.php?";
 
     public static final String Base_url_category = Base_url+"?categories=true";
     public static final String Base_url_dashboard_provider = Base_url+"?providers=true&client_id=";
@@ -33,9 +33,9 @@ public class Constant {
 
     //chat
     public static final String Base_url_chatlist=Base_url+"?get_chat=true&client_id=";
-    public static final String Base_url_chatimage="http://marketist.eparking.website/uploads/chats";
+    public static final String Base_url_chatimage="https://providors.finalyearprojects.website/uploads/chats";
     public static final String Base_url_get_conversation=Base_url+"?get_conversation=true";
 
-    public static final String addwl="http://marketist.eparking.website/Client/Api.php";
-    public static final String removewl="http://marketist.eparking.website/Client/Api.php?remove_wishlist=true&client_id=";
+    public static final String addwl="https://providors.finalyearprojects.website/Client/Api.php";
+    public static final String removewl="https://providors.finalyearprojects.website/Client/Api.php?remove_wishlist=true&client_id=";
 }
